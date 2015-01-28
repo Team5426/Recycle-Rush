@@ -46,5 +46,14 @@ public class OI {
     public static double rightAxisY(){
     	return stick.getRawAxis(5);
     }
+    
+    public static double squareInput(double n){
+		if (n > 0)
+			n = Math.pow(n, 2);
+		else
+			n = -1 * Math.pow(n, 2);
+		
+		return n;
+    }
       
 }

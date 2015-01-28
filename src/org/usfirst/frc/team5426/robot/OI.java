@@ -47,6 +47,11 @@ public class OI {
     	return stick.getRawAxis(5);
     }
     
+    
+    /**
+     * @param n The number to square
+     * @return Returns n to the second power. Sign of n doesn't change
+     */
     public static double squareInput(double n){
 		if (n > 0)
 			n = Math.pow(n, 2);

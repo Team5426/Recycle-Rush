@@ -26,7 +26,8 @@ public class DriveJoystick extends CommandBase {
 		
 		SmartDashboard.putNumber("X Squared", x);
 		SmartDashboard.putNumber("Y Squared", y);
-		driveTrain.myRobot.arcadeDrive(y, x);
+		//driveTrain.myRobot.arcadeDrive(y, x);
+		driveTrain.myRobot.arcadeDrive(OI.leftAxisY(), OI.leftAxisX(), true);
     }
 
     // Make this return true when this Command no longer needs to run execute()

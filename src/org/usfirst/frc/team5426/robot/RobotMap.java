@@ -7,12 +7,20 @@ package org.usfirst.frc.team5426.robot;
  */
 public class RobotMap {
     //DRIVETRAIN MOTORS
+	//PWM
     public static final int leftMotor = 0;
     public static final int leftBackMotor = 1;
     public static final int rightMotor = 2;
     public static final int rightBackMotor = 3;
     
     //LIFT MOTORS
-    public static final int liftMotor = 0;
+    //CAN
+    public static final int liftMotor1 = 1;
+    public static final int liftMotor2 = 2;
+    
+    //ENCODERS
+    //DIO
+    public static final int leftEncoderA = 0;
+    public static final int leftEncoderB = 1;
 
 }

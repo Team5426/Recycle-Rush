@@ -23,10 +23,11 @@ public class OI {
 
     
     public OI(){
+    	double speed = 0.6;
     	buttonY.whileHeld(new DriveForwards());
     	buttonA.whileHeld(new DriveBackwards());
-    	lTrigger.whileHeld(new LiftJoystick(-0.6));
-    	rTrigger.whileHeld(new LiftJoystick(0.6));
+    	lTrigger.whileHeld(new LiftJoystick(speed));
+    	rTrigger.whileHeld(new LiftJoystick(-1 * speed));
     }
     
     

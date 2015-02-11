@@ -8,11 +8,13 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  * Drives with the joystick
  */
-public class DriveJoystick extends CommandBase {
+public class LiftJoystick extends CommandBase {
 
-    public DriveJoystick() {
+	public double speed;
+    public LiftJoystick(double d) {
         // Use requires() here to declare subsystem dependencies
-        requires(driveTrain);
+        requires(lift);
+        //speed = d;
     }
 
     // Called just before this Command runs the first time
@@ -21,17 +23,12 @@ public class DriveJoystick extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-		double y = OI.squareInput(OI.leftAxisY());
-		double x = OI.squareInput(OI.leftAxisX());
-		//int countLeft = driveTrain.getLeftEncoder().get();
-		//boolean stoppedLeft = driveTrain.getLeftEncoder().getStopped();
+		double y = OI.squareInput(OI.rightAxisY());
 		
-		//SmartDashboard.putNumber("Left encoder count", countLeft);
-		//SmartDashboard.putBoolean("Left encoder stopped", stoppedLeft);
-		driveTrain.getLeftEncoder();
-		SmartDashboard.putNumber("X Squared", x);
-		SmartDashboard.putNumber("Y Squared", y);
-		driveTrain.myRobot.arcadeDrive(OI.leftAxisY(), OI.leftAxisX(), true);
+		SmartDashboard.putNumber("Lift Squared", y);
+		//lift.myArm.set(speed);
+		lift.myArm.set(y);
+		lift.myArm2.set(y);
     }
 
     // Make this return true when this Command no longer needs to run execute()

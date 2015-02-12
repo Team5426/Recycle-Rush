@@ -10,6 +10,7 @@ public class Lift extends Subsystem{
 
 	public CANTalon myArm = new CANTalon(RobotMap.liftMotor1);
 	public CANTalon myArm2 = new CANTalon(RobotMap.liftMotor2);
+	public CANTalon fork = new CANTalon(RobotMap.liftArmMotor);
 	
 	public Lift(){
 	}

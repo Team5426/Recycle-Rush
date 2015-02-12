@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team5426.robot.commands.DriveBackwards;
 import org.usfirst.frc.team5426.robot.commands.DriveForwards;
-import org.usfirst.frc.team5426.robot.commands.LiftJoystick;
+import org.usfirst.frc.team5426.robot.commands.LiftArms;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -21,13 +21,12 @@ public class OI {
     Button lTrigger = new JoystickButton(stick, 5);
     Button rTrigger = new JoystickButton(stick, 6);
 
-    
     public OI(){
     	double speed = 0.6;
     	buttonY.whileHeld(new DriveForwards());
     	buttonA.whileHeld(new DriveBackwards());
-    	lTrigger.whileHeld(new LiftJoystick(speed));
-    	rTrigger.whileHeld(new LiftJoystick(-1 * speed));
+    	lTrigger.whileHeld(new LiftArms(-1 * speed));
+    	rTrigger.whileHeld(new LiftArms(speed));
     }
     
     

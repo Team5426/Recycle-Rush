@@ -2,24 +2,16 @@
 package org.usfirst.frc.team5426.robot.commands;
 
 /**
- * Drives with the joystick
+ * Opens and closes the lift arms
  */
-public class AutonomousDrive extends CommandBase {
+public class LiftArms extends CommandBase {
 
-	private double moveValue, rotateValue, time;
+	public double speed;
 	
-	/**
-	 * 
-	 * @param y Forwards/Backwards speed 
-	 * @param x Left/Right speed
-	 * @param s Amount of time to run this command
-	 */
-    public AutonomousDrive(double y, double x, double s) {
+    public LiftArms(double d) {
         // Use requires() here to declare subsystem dependencies
-        requires(driveTrain);
-        moveValue = y;
-        rotateValue = x;
-        time = s;
+        requires(lift);
+        speed = d;
     }
 
     // Called just before this Command runs the first time
@@ -28,13 +20,12 @@ public class AutonomousDrive extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-		driveTrain.myRobot.arcadeDrive(moveValue, rotateValue);
-		setTimeout(time);
+		lift.fork.set(speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut();
+        return false;
     }
 
     // Called once after isFinished returns true

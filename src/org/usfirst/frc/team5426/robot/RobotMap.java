@@ -17,6 +17,7 @@ public class RobotMap {
     //CAN
     public static final int liftMotor1 = 1;
     public static final int liftMotor2 = 2;
+    public static final int liftArmMotor = 3;
     
     //ENCODERS
     //DIO

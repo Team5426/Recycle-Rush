@@ -18,15 +18,15 @@ public class OI {
     Button buttonA = new JoystickButton(stick, 1);
     Button buttonB = new JoystickButton(stick, 2);
     Button buttonY = new JoystickButton(stick, 4);
-    Button lTrigger = new JoystickButton(stick, 5);
-    Button rTrigger = new JoystickButton(stick, 6);
+    Button lBumper = new JoystickButton(stick, 5);
+    Button rBumper = new JoystickButton(stick, 6);
 
     public OI(){
     	double speed = 0.5;
     	buttonY.whileHeld(new DriveForwards());
     	buttonA.whileHeld(new DriveBackwards());
-    	lTrigger.whileHeld(new LiftArms(-1 * speed));
-    	rTrigger.whileHeld(new LiftArms(speed));
+    	lBumper.whileHeld(new LiftArms(-1 * speed));
+    	rBumper.whileHeld(new LiftArms(speed));
     }
     
     

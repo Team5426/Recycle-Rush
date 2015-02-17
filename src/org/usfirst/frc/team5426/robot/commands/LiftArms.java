@@ -1,6 +1,10 @@
 
 package org.usfirst.frc.team5426.robot.commands;
 
+import org.usfirst.frc.team5426.robot.OI;
+
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 /**
  * Opens and closes the lift arms
  */

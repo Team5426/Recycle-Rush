@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team5426.robot.commands.*;
@@ -20,6 +21,7 @@ public class Robot extends IterativeRobot {
 
 
     Command autonomousCommand;
+    SendableChooser autoMode;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -28,7 +30,11 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
     	CommandBase.init();
     	// instantiate the command used for the autonomous period
-        autonomousCommand = new AutonomousGroup();
+    	
+    	autoMode = new SendableChooser();
+    	autoMode.addDefault("Straight", new AutonomousStraight());
+    	autoMode.addObject("Auto Mode 2", new AutonomousTest());
+    	SmartDashboard.putData("Auto Mode Chooser:", autoMode);
     }
 	
 	public void disabledPeriodic() {
@@ -37,7 +43,8 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
-        if (autonomousCommand != null) autonomousCommand.start();
+    	autonomousCommand = (Command) autoMode.getSelected();
+    	if (autonomousCommand != null) autonomousCommand.start();
     }
 
     /**

@@ -23,12 +23,27 @@ public class LiftJoystick extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-		double y = OI.squareInput(OI.rightAxisY());
 		
+    	double y = -1 * OI.squareInput(OI.rightAxisY());
+		double x = OI.squareInput(OI.rightAxisX());
+
 		SmartDashboard.putNumber("Lift Squared", y);
-		//lift.myArm.set(speed);
+    	SmartDashboard.putNumber("Arm Speed", x);
+    	SmartDashboard.putBoolean("Bottom Limit Switch", lift.getBottomSwitch().get());
+    	SmartDashboard.putBoolean("Top Limit Switch", lift.getTopSwitch().get());
+    	SmartDashboard.putBoolean("Side Limit Switch", lift.getSideSwitch().get());
+    	
+    	//lift.myArm.set(speed);
+		
+    	if (((lift.getBottomSwitch().get()) && (y < 0)) || ((lift.getTopSwitch().get()) && (y > 0)))
+    		y = 0;
+    	
+    	if ((lift.getSideSwitch().get()) && (x > 0))
+    		x = 0;
+    	
 		lift.myArm.set(y);
 		lift.myArm2.set(y);
+		lift.fork.set(x);
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -7,7 +7,6 @@ import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class DriveTrain extends Subsystem {
 
@@ -17,15 +16,20 @@ public class DriveTrain extends Subsystem {
 											   new Talon(RobotMap.rightBackMotor));
 	
 	public Encoder leftEncoder = new Encoder(RobotMap.leftEncoderA,
-											  RobotMap.leftEncoderB,
-											  false,
-											  Encoder.EncodingType.k1X);
+											  RobotMap.leftEncoderB);
+	
+	public Encoder rightEncoder = new Encoder(RobotMap.rightEncoderA,
+											  RobotMap.rightEncoderB);
 	
 	public DriveTrain() {
 	}
 	
-	public void getLeftEncoder(){
-		SmartDashboard.putNumber("Left Encoder Count 2", leftEncoder.get());
+	public Encoder getLeftEncoder(){
+		return leftEncoder;
+	}
+	
+	public Encoder getRightEncoder(){
+		return rightEncoder;
 	}
 	
 	public void initDefaultCommand() {

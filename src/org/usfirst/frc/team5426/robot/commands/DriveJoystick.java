@@ -21,16 +21,18 @@ public class DriveJoystick extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-		double y = OI.squareInput(OI.leftAxisY());
+		double y = -1 * OI.squareInput(OI.leftAxisY());
 		double x = OI.squareInput(OI.leftAxisX());
-		//int countLeft = driveTrain.getLeftEncoder().get();
-		//boolean stoppedLeft = driveTrain.getLeftEncoder().getStopped();
 		
-		//SmartDashboard.putNumber("Left encoder count", countLeft);
-		//SmartDashboard.putBoolean("Left encoder stopped", stoppedLeft);
-		driveTrain.getLeftEncoder();
+		int countRight = driveTrain.getRightEncoder().get();
+		boolean stoppedRight = driveTrain.getRightEncoder().getStopped();
+		
+		//SmartDashboard.putNumber("Right encoder count", countRight);
+		//SmartDashboard.putBoolean("Right encoder stopped", stoppedRight);
+
 		SmartDashboard.putNumber("X Squared", x);
 		SmartDashboard.putNumber("Y Squared", y);
+		
 		driveTrain.myRobot.arcadeDrive(OI.leftAxisY(), OI.leftAxisX(), true);
     }
 

@@ -23,5 +23,14 @@ public class RobotMap {
     //DIO
     public static final int leftEncoderA = 0;
     public static final int leftEncoderB = 1;
-
+    public static final int rightEncoderA = 2;
+    public static final int rightEncoderB = 3;
+    
+    
+    //LIMIT SWITCHES
+    //DIO
+    public static final int bottomSwitchDIO = 4;
+    public static final int topSwitchDIO = 5;
+    public static final int sideSwitchDIO = 6;
+    
 }

@@ -22,7 +22,7 @@ public class OI {
     Button rTrigger = new JoystickButton(stick, 6);
 
     public OI(){
-    	double speed = 0.6;
+    	double speed = 0.5;
     	buttonY.whileHeld(new DriveForwards());
     	buttonA.whileHeld(new DriveBackwards());
     	lTrigger.whileHeld(new LiftArms(-1 * speed));
@@ -50,6 +50,14 @@ public class OI {
      */
     public static double rightAxisY(){
     	return stick.getRawAxis(5);
+    }
+    
+    
+    /**
+     * @return Value of the right analog X axis
+     */
+    public static double rightAxisX(){
+    	return stick.getRawAxis(4);
     }
     
     
